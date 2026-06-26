@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easter Egg — Meet Grég · GL°</title>
+    <meta name="description" content="Zone interactive : Modélisation 3D et expérimentation digitale." />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <style>
+         :root {
+            --bg-egg: #0a0a0a;
+            --text-egg: #f1f5f9;
+        }
+        
+        body.egg-zone {
+            background-color: var(--bg-egg) !important;
+            color: var(--text-egg) !important;
+            overflow: hidden;
+            height: 100vh;
+            /* Remplacement par svh pour éviter le saut de la barre de navigation sur iPhone */
+            height: 100svh;
+            width: 100vw;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Syne', sans-serif;
+        }
+        /* Conteneur plein écran pour ta tête */
+        
+        .canvas-3d-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        model-viewer#greg-head {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            outline: none;
+            --poster-color: transparent;
+        }
+        /* Interface minimaliste par-dessus */
+        
+        .egg-interface {
+            position: relative;
+            z-index: 10;
+            pointer-events: none;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .egg-title h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
+            margin: 0;
+            color: #11CAA0;
+            /* Ta couleur accent */
+        }
+        
+        .egg-instructions {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #64748b;
+            text-align: right;
+        }
+        
+        .egg-footer {
+            position: relative;
+            z-index: 10;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+        }
+        
+        .back-btn {
+            pointer-events: auto;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            color: var(--text-egg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(5px);
+        }
+        
+        .back-btn:hover {
+            background: var(--text-egg);
+            color: var(--bg-egg);
+            border-color: var(--text-egg);
+            transform: translateY(-2px);
+        }
+        /* --- Adaptation iPhone Spécifique Easter Egg --- */
+        
+        @media (max-width: 600px) {
+            .egg-interface {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 15px;
+                padding: 20px;
+            }
+            .egg-instructions {
+                text-align: center;
+            }
+            .egg-footer {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+                text-align: center;
+            }
+            .egg-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="egg-zone" style="opacity: 1 !important; visibility: visible !important;">
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <div class="egg-interface">
+        <div class="egg-title">
+            <h1>PROTOTYPE<br>GREG</h1>
+        </div>
+        <div class="egg-instructions">
+            <p>Bouge ton doigt (ou souris) pour me faire tourner la tête.<br>Clique pour voir.<br>Mieux qu'une photo de CV non ?</p>
+        </div>
+    </div>
+
+    <div class="canvas-3d-container">
+        <model-viewer id="greg-head" src="assets/3d/greg.glb" alt="Scan 3D de la tête de Grégoire" interaction-prompt="none" camera-controls disable-zoom disable-pan shadow-intensity="2" camera-orbit="90deg 90deg 105%" interpolation-decay="200" style="touch-action: none;">
+        </model-viewer>
+    </div>
+
+    <div class="egg-footer">
+        <a href="index.html" class="back-btn">← Retourner à la réalité</a>
+        <div style="font-family: 'DM Sans', sans-serif; font-size: 0.8rem; color: #475569;">© 2026 — Expérimentation Interactive</div>
+    </div>
+
+    <script>
+        const head = document.getElementById('greg-head');
+        let isSpinning = false;
+        let spinVelocity = 0;
+        let currentRotation = 0;
+
+        // 1. EFFET "REGARD" : La tête s'oriente selon la position du curseur
+        window.addEventListener('mousemove', (e) => {
+            if (isSpinning) return;
+
+            // Calcul de la position relative de la souris (-0.5 à 0.5)
+            const x = (e.clientX / window.innerWidth) - 0.5;
+            const y = (e.clientY / window.innerHeight) - 0.5;
+
+            // Base à 90deg pour faire face, puis ajout du décalage de la souris
+            const targetHorizontalAngle = 90 + (x * 120);
+            const targetVerticalAngle = 90 + (y * 40);
+
+            // Application fluide au model-viewer
+            head.cameraOrbit = `${targetHorizontalAngle}deg ${targetVerticalAngle}deg 105%`;
+        });
+
+        // 2. EFFET DRÔLE : Si on clique sur la tête, elle part en vrille (360°)
+        window.addEventListener('click', () => {
+            if (isSpinning) return;
+
+            isSpinning = true;
+            spinVelocity = 30; // Impulsion de vitesse initiale
+            currentRotation = 90; // On part de la nouvelle position de face
+
+            function spin() {
+                if (spinVelocity > 0.1) {
+                    currentRotation += spinVelocity;
+                    spinVelocity *= 0.97; // Friction
+
+                    head.cameraOrbit = `${currentRotation}deg 90deg 105%`;
+                    requestAnimationFrame(spin);
+                } else {
+                    isSpinning = false;
+                    currentRotation = 90;
+                }
+            }
+            spin();
+        });
+
+        // 3. TON CURSEUR CUSTOM EXISTANT (SÉCURISÉ)
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        let mouseX = 0,
+            mouseY = 0,
+            ringX = 0,
+            ringY = 0;
+
+        if (dot && ring && window.innerWidth > 900) {
+            window.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.left = mouseX + 'px';
+                dot.style.top = mouseY + 'px';
+            });
+
+            (function animateRing() {
+                ringX += (mouseX - ringX) * .12;
+                ringY += (mouseY - ringY) * .12;
+                ring.style.left = ringX + 'px';
+                ring.style.top = ringY + 'px';
+                requestAnimationFrame(animateRing);
+            })();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tests Qualité & CAO</title>
+    <meta name="description" content="Étude de cas : Internalisation de compétences 3D, Heineken Brewery — Grégoire Liagre." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        .subpage-aside nav a { transition: all 0.3s ease; border-left: 2px solid transparent; }
+        .subpage-aside nav a.active { font-weight: bold; padding-left: 10px; border-left-color: #11CAA0; color: #11CAA0; }
+        .nav-logo-text span { display: inline-block; animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.7; color: #11CAA0; } }
+    </style>
+
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+    </script>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <header id="site-header" class="site-header-subpage">
+        <div class="subpage-header-container">
+            <div class="nav-logo-area">
+                <div class="nav-logo-text">
+                    <a href="index.html">Grég</a>
+                    <button id="theme-toggle" class="theme-toggle-oi" aria-label="Changer de thème">
+                        <span class="oi-thumb"></span>
+                    </button>
+                    <a href="greg.html">re<span>.</span></a>
+                </div>
+            </div>
+            <a href="index.html#realisations" class="subpage-back-link">← Retour aux réalisations</a>
+        </div>
+    </header>
+
+    <section class="subpage-hero">
+        <h1 id="fade-titre" class="subpage-title" style="font-size: clamp(3.5rem, 8vw, 7.5rem);">
+            TESTS QUALITÉ<br>& CAO
+        </h1>
+        <div id="wrapper-bouteille" class="subpage-model-wrapper">
+            <model-viewer
+                id="bouteille"
+                src="assets/3d/bouteille_test.glb"
+                alt="Modélisation CAO interactive Heineken - Grégoire Liagre"
+                loading="eager"
+                ar-status="not-present"
+                interaction-prompt="none"
+                shadow-intensity="1.5"
+                camera-orbit="0deg 90deg 105%">
+            </model-viewer>
+        </div>
+    </section>
+
+    <main class="subpage-main">
+
+        <p class="subpage-intro">
+            Internalisation de la fabrication additive pour éradiquer le risque verre et fiabiliser les capteurs de la mireuse (inspection visuelle) sur les lignes haute cadence.
+        </p>
+
+        <div class="subpage-summary">
+            <div class="subpage-summary-grid">
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Type de projet</span>
+                    <span class="subpage-summary-value">Optimisation technique, Lean Manufacturing & Choix Stratégique (Make or Buy)</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Livrables</span>
+                    <span class="subpage-summary-value">Modèles CAO originaux, Prototypes physiques en PLA, Standards de contrôle qualité</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Compétences</span>
+                    <span class="subpage-summary-value">CAO 3D, Analyse d'efforts, Ergonomie, Analyse financière</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Mon rôle</span>
+                    <span class="subpage-summary-value">Modélisation, prototypage impression, réalisation des packs tests et validation de conformité</span>
+                </div>
+            </div>
+            <div class="subpage-tools-row">
+                <span class="subpage-tools-label">Outils</span>
+                <div class="subpage-tools-list">
+                    <img src="assets/img/logo-solidworks.png" alt="SolidWorks" class="subpage-tool-img-auto" />
+                    <img src="assets/img/logo-cura.png" alt="Ultimaker Cura" class="subpage-tool-img-auto" />
+                </div>
+            </div>
+        </div>
+
+        <div class="subpage-content-grid">
+            <aside class="subpage-aside">
+                <nav>
+                    <a href="#defi">— Le Défi</a>
+                    <a href="#probleme">— Le Problème</a>
+                    <a href="#solutions">— Les Solutions</a>
+                    <a href="#resultat">— Le Résultat</a>
+                </nav>
+            </aside>
+
+            <section class="subpage-sections">
+
+                <div id="defi">
+                    <h2 class="subpage-h2">— LE DÉFI</h2>
+                    <p>Fiabiliser et accélérer les tests qualité sur les lignes de conditionnement haute cadence. Face à des packs tests historiques équipés de vraies bouteilles en verre, les lignes subissaient des casses répétées. Par manque de temps pour recréer un pack conforme au milieu du flux, les opérateurs continuaient parfois de faire tourner des packs brisés, annulant complètement la valeur scientifique du test.</p>
+                </div>
+
+                <div id="probleme">
+                    <h2 class="subpage-h2">— LE PROBLÈME TECHNIQUE & QUALITÉ</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Faux tests d'inspection :</strong> Le but du pack test est de vérifier le bon fonctionnement individuel de chaque capteur de présence de capsule. Si des bouteilles manquent ou sont brisées à l'intérieur du pack, tous les capteurs s'activent simultanément. Impossible alors d'isoler et de valider l'efficacité de chaque capteur un par un : le test ne servait plus à rien.</li>
+                        <li><strong>Sécurité & Productivité :</strong> Risques majeurs de coupure (bris de verre au sol), pénibilité physique (port de charges lourdes pour les opérateurs) et détournement de packs marchands de la production pour pallier les casses.</li>
+                    </ul>
+                    <div class="subpage-media-container">
+                        <img src="assets/img/terrain-casse-verre.jpg" alt="Problématique historique du verre sur ligne haute cadence" loading="lazy" />
+                    </div>
+                </div>
+
+                <div id="solutions">
+                    <h2 class="subpage-h2">— LES SOLUTIONS IMPLÉMENTÉES</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Initiative transversale :</strong> Proposition spontanée d'une solution innovante au service Qualité (hors périmètre d'origine) basée sur la fabrication additive.</li>
+                        <li><strong>Conception & Test d'efforts :</strong> Modélisation 3D chirurgicale des bouteilles sur SolidWorks et simulation numérique des contraintes mécaniques pour garantir une résistance maximale aux impacts de la ligne.</li>
+                        <li><strong>Éco-conception en PLA :</strong> Impression des bouteilles de substitution en PLA (biodégradable, ultra-léger et incassable à ce niveau de contrainte).</li>
+                    </ul>
+                </div>
+
+                <div id="resultat">
+                    <h2 class="subpage-h2">— LE RÉSULTAT</h2>
+                    <div class="subpage-result-box subpage-result-box-half">
+                        <div class="subpage-result-title" style="font-size: 3.5rem;">40 000 €</div>
+                        <p class="subpage-result-desc"><strong>D'économies annuelles générées (Make or Buy) :</strong> Gain direct obtenu en évitant d'externaliser la production de ces pièces complexes, grâce à la maîtrise interne de la chaîne 3D.</p>
+                    </div>
+                    <ul class="subpage-ul">
+                        <li><strong>Qualité & Fiabilité :</strong> Restauration d'un protocole de test machine 100 % fiable (validation stricte et unitaire de chaque capteur) et suppression totale des biais de contrôle.</li>
+                        <li><strong>Sécurité & Ergonomie :</strong> Élimination définitive du risque verre en usine et réduction drastique de la pénibilité pour les équipes de conduite terrain.</li>
+                    </ul>
+                </div>
+
+            </section>
+        </div>
+
+        <nav class="project-nav">
+            <a href="index.html#realisations" class="nav-prev">← Retour aux réalisations</a>
+            <a href="NFC.html" class="nav-next">Projet suivant →</a>
+        </nav>
+
+    </main>
+
+    <script>
+        const fontsReady = document.fonts.ready;
+        const domReady   = new Promise(r => document.addEventListener('DOMContentLoaded', r));
+        Promise.all([fontsReady, domReady]).then(() => {
+            document.body.style.opacity = '1';
+            
+            // Scroll-Spy natif
+            const sections = document.querySelectorAll('.subpage-sections div[id]');
+            const navLinksSpy = document.querySelectorAll('.subpage-aside nav a');
+            const spyObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinksSpy.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-20% 0px -60% 0px' });
+            sections.forEach(sec => spyObserver.observe(sec));
+        });
+
+        const wrapper   = document.getElementById('wrapper-bouteille');
+        const bouteille = document.getElementById('bouteille');
+        const titre     = document.getElementById('fade-titre');
+        let scrollTicking = false;
+
+        window.addEventListener('scroll', () => {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                const y        = window.scrollY;
+                const progress = Math.min(y / 250, 1);
+
+                if (titre)     titre.style.opacity = Math.max(1 - y / 120, 0);
+                if (wrapper)   wrapper.style.transform = `rotate(${progress * 0}deg)`;
+                if (bouteille) bouteille.setAttribute('camera-orbit', `${y * 0.4}deg 90deg 105%`);
+
+                scrollTicking = false;
+            });
+        }, { passive: true });
+
+        const dot  = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+        if (dot && ring && window.innerWidth > 900) {
+            window.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.left = mouseX + 'px';
+                dot.style.top  = mouseY + 'px';
+            });
+            (function animateRing() {
+                ringX += (mouseX - ringX) * .12;
+                ringY += (mouseY - ringY) * .12;
+                ring.style.left = ringX + 'px';
+                ring.style.top  = ringY + 'px';
+                requestAnimationFrame(animateRing);
+            })();
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+            });
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industrial Digitization : Power Platform & BI - Projet</title>
+    <meta name="description" content="Étude de cas : Écosystème digital industriel complet — Application terrain Poka-Yoke (Power Apps) et Business Intelligence de supervision (Power BI)." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+    </script>
+</head>
+
+<body>
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <header id="site-header" class="site-header-subpage">
+        <div class="subpage-header-container">
+            <div class="nav-logo-area">
+                <div class="nav-logo-text">
+                    <a href="index.html">Grég</a>
+                    <button id="theme-toggle" class="theme-toggle-oi" aria-label="Changer de thème">
+                        <span class="oi-thumb"></span>
+                    </button>
+                    <a href="index.html">re<span>.</span></a>
+                </div>
+            </div>
+            <a href="index.html#realisations" class="subpage-back-link">← Retour aux réalisations.</a>
+        </div>
+    </header>
+
+    <section class="subpage-hero">
+        <h1 id="fade-titre" class="subpage-title" style="font-size: clamp(2.2rem, 6.5vw, 5.5rem); line-height: 1.1;">
+            DIGITALISATION & INDUSTRIAL BI<br>POWER PLATFORM ECOSYSTEM
+        </h1>
+    </section>
+
+    <main class="subpage-main">
+
+        <p class="subpage-intro">
+            Modernisation globale des flux d'informations industriels : de la conception d'applications de saisie Poka-Yoke sur le terrain à la centralisation analytique et à la modélisation de tableaux de bord décisionnels complexes.
+        </p>
+
+        <div class="subpage-summary">
+            <div class="subpage-summary-grid">
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Type de projet</span>
+                    <span class="subpage-summary-value">Digitalisation de Processus, Business Intelligence (BI), Data Engineering & Excellence Opérationnelle</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Livrables</span>
+                    <span class="subpage-summary-value">Application mobile/tablette Power Apps, Flux automatisés Power Automate, Pipeline d'extraction SQL & Modèle en étoile, Dashboard interactif Power BI</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Compétences</span>
+                    <span class="subpage-summary-value">Conception UI/UX industrielle, Sûreté de fonctionnement (Poka-Yoke), Requêtage SQL complexe, Modélisation de données & Logique DAX avancée, Analyse de KPI industriels (TRS, Pertes)</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Mon rôle</span>
+                    <span class="subpage-summary-value">Ingénieur Digitalisation & Data Analyst Performance Industrielle</span>
+                </div>
+            </div>
+            <div class="subpage-tools-row">
+                <span class="subpage-tools-label">Outils</span>
+                <div class="subpage-tools-list">
+                    <div class="subpage-tool-img-box"><img src="assets/img/logo-powerapps.png" alt="Microsoft Power Apps" /></div>
+                    <div class="subpage-tool-img-box"><img src="assets/img/logo-powerbi.png" alt="Microsoft Power BI" /></div>
+                    <div class="subpage-tool-img-box"><img src="assets/img/logo-powerautomate.png" alt="Microsoft Power Automate" /></div>
+                    <div class="subpage-tool-img-box"><img src="assets/img/logo-sql.png" alt="MS SQL Server" /></div>
+                    <div class="subpage-tool-img-box"><img src="assets/img/logo-dataverse.png" alt="SharePoint / Dataverse" /></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subpage-content-grid">
+            <aside class="subpage-aside">
+                <nav>
+                    <a href="#defi">— Le Défi Écosystémique</a>
+                    <a href="#apps-terrain">— Capture Terrain & Poka-Yoke</a>
+                    <a href="#pipelines-data">— Pipelines & Modélisation SQL</a>
+                    <a href="#bi-analytics">— Ingénierie Analytique DAX</a>
+                    <a href="#resultats">— Les Résultats</a>
+                </nav>
+            </aside>
+
+            <section class="subpage-sections">
+
+                <div id="defi-ecosystemique">
+                    <h2 class="subpage-h2">— LE DÉFI ÉCOSYSTÉMIQUE</h2>
+                    <p>Éradiquer les rapports papier obsolètes et briser les silos de données au sein de l'usine pour fiabiliser la remontée d'informations. Les opérateurs saisissaient auparavant les données de production à la main, entraînant des retards, des pertes d'informations et des valeurs aberrantes qui faussaient les analyses de performance. L'enjeu était de connecter l'ensemble du flux (saisie opérateur manuelle sécurisée et données brutes des automates DCS/SCADA) à une infrastructure unique, intègre et exploitable en temps réel.</p>
+                </div>
+
+                <div id="apps-terrain">
+                    <h2 class="subpage-h2">— CAPTURE TERRAIN & DESIGN POKA-YOKE (POWER APPS & AUTOMATE)</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Interface Homme-Machine (IHM) :</strong> Développement sur Power Apps d'une interface épurée adaptée aux contraintes de l'atelier (boutons larges pour usage sur tablette avec des gants, masques de saisie stricts interdisant les caractères alphanumériques dans les champs de mesure).</li>
+                        <li><strong>Détrompeurs Dynamiques (Poka-Yoke) :</strong> Implémentation de formules logiques bloquant instantanément la validation du rapport si la donnée saisie dévie des tolérances physiques de la machine. Utilisation de listes déroulantes contextuelles et de lectures de QR codes pour éliminer les erreurs d'identification.</li>
+                        <li><strong>Flux d'Alerte Maintenance :</strong> Interconnexion avec Power Automate pour court-circuiter le circuit d'analyse classique en cas d'« Anomalie critique » ou de « Panne imminente » : envoi immédiat d'un email structuré au superviseur et génération automatique d'un ticket prioritaire dans la GMAO de l'usine.</li>
+                    </ul>
+                </div>
+
+                <div id="pipelines-data">
+                    <h2 class="subpage-h2">— PIPELINES DE DONNÉES & MODÉLISATION RELATIONNELLE SQL</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Pipeline d'Extraction SQL :</strong> Écriture et optimisation de requêtes SQL complexes pour extraire, nettoyer et fusionner les historiques de saisie de l'application avec les millions de lignes générées par les capteurs industriels (débitmètres, compteurs de cadence).</li>
+                        <li><strong>Modèle en Étoile (Star Schema) :</strong> Conception d'une architecture de données performante sur Power BI. Isolation rigoureuse des tables de faits (événements de production, volumes rejetés, relevés de consommations) et des tables de dimensions (lignes, équipes, références produits, calendrier), assurant des temps de calcul et de rafraîchissement minimaux.</li>
+                    </ul>
+                </div>
+
+                <div id="bi-analytics">
+                    <h2 class="subpage-h2">— INDUSTRIAL BUSINESS INTELLIGENCE & LOGIQUE DAX AVANCÉE</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Analyse Mathématique des Dérives :</strong> Écriture de mesures et d'indicateurs avancés en langage DAX pour modéliser dynamiquement la consommation des utilités (eau industrielle, énergies) par rapport aux volumes théoriques attendus. Cette logique permet de détecter instantanément les fuites en ligne ou les surconsommations lors des cycles de nettoyage (CIP).</li>
+                        <li><strong>Calcul et Suivi du TRS :</strong> Intégration d'algorithmes d'évaluation du Taux de Rendement Synthétique (TRS / OEE). Les modèles DAX séparent automatiquement les pertes de disponibilité (pannes), de performance (micro-arrêts, ralentissements) et de qualité (rebuts) pour cibler précisément les goulots d'étranglement de la ligne de production.</li>
+                    </ul>
+                </div>
+
+                <div id="resultats">
+                    <h2 class="subpage-h2">— LE RÉSULTAT CONJOINT</h2>
+                    <div class="subpage-result-box" style="margin-bottom: 0;">
+                        <div class="subpage-result-title" style="font-size: clamp(1.8rem, 6vw, 2.5rem); line-height: 1.1;">EXCELLENCE OPÉRATIONNELLE<br>0 ERREUR & -12% DE PERTES</div>
+                        <p class="subpage-result-desc">Un écosystème d'aide à la décision complet, adopté à 100% du terrain au management d'usine. La suppression totale des biais de saisie manuelle combinée à la visibilité immédiate des dérives a permis d'optimiser l'efficience du site, de réduire drastiquement l'empreinte eau et de diviser par 10 le temps de réaction de la maintenance.</p>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <nav class="project-nav">
+            <a href="index.html#realisations" class="nav-prev">← Retour aux réalisations.</a>
+            <a href="index.html#realisations" class="nav-next">Retour au Portfolio →</a>
+        </nav>
+
+    </main>
+
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+
+        const fontsReady = document.fonts.ready;
+        const domReady   = new Promise(r => document.addEventListener('DOMContentLoaded', r));
+        Promise.all([fontsReady, domReady]).then(() => {
+            document.body.style.opacity = '1';
+        });
+
+        const titre = document.getElementById('fade-titre');
+        let scrollTicking = false;
+
+        window.addEventListener('scroll', () => {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                const y = window.scrollY;
+                if (titre) titre.style.opacity = Math.max(1 - y / 120, 0);
+                scrollTicking = false;
+            });
+        }, { passive: true });
+
+        const dot  = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+        if (dot && ring && window.innerWidth > 900) {
+            window.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.left = mouseX + 'px';
+                dot.style.top  = mouseY + 'px';
+            });
+            (function animateRing() {
+                ringX += (mouseX - ringX) * .12;
+                ringY += (mouseY - ringY) * .12;
+                ring.style.left = ringX + 'px';
+                ring.style.top  = ringY + 'px';
+                requestAnimationFrame(animateRing);
+            })();
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+            });
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+
+        /* IntersectionObserver optimisé avec zone de détection centrale */
+        const subpageObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.subpage-aside nav a[href="#${id}"]`);
+                    
+                    if (link) {
+                        document.querySelectorAll('.subpage-aside nav a').forEach(a => a.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                }
+            });
+        }, { 
+            threshold: 0.2,
+            rootMargin: '-20% 0px -20% 0px'
+        });
+
+        document.querySelectorAll('section.subpage-sections > div[id]').forEach(section => {
+            subpageObserver.observe(section);
+        });
+    </script>
+
+</body>
+</html>

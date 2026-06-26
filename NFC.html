@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet NFC</title>
+    <meta name="description" content="Déploiement d'une solution de notation IoT/NFC pour optimiser l'e-réputation et la visibilité locale d'une enseigne de restauration haut de gamme." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+    </script>
+</head>
+
+<body>
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <header id="site-header" class="site-header-subpage">
+        <div class="subpage-header-container">
+            <div class="nav-logo-area">
+                <div class="nav-logo-text">
+                    <a href="index.html">Grég</a>
+                    <button id="theme-toggle" class="theme-toggle-oi" aria-label="Changer de thème">
+                        <span class="oi-thumb"></span>
+                    </button>
+                    <a href="index.html">re<span>.</span></a>
+                </div>
+            </div>
+            <a href="index.html#realisations" class="subpage-back-link">← Retour aux réalisations.</a>
+        </div>
+    </header>
+
+    <section class="subpage-hero">
+        <h1 id="fade-titre" class="subpage-title" style="font-size: clamp(2.2rem, 7.5vw, 5.5rem); line-height: 1.1;">
+            Projet NFC
+        </h1>
+        </section>
+
+    <main class="subpage-main">
+
+        <p class="subpage-intro">
+            Déploiement d'une solution de notation IoT/NFC pour optimiser l'e-réputation et la visibilité locale d'une enseigne de restauration haut de gamme.
+        </p>
+
+        <div class="subpage-summary">
+            <div class="subpage-summary-grid">
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Type de projet</span>
+                    <span class="subpage-summary-value">Stratégie Digitale, IoT grand public & Growth Hacking</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Livrables</span>
+                    <span class="subpage-summary-value">Tags NFC configurés et sécurisés, Supports de communication PLV personnalisés, Livret d'onboarding équipes, Dashboard de suivi de l'e-réputation Google</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Compétences</span>
+                    <span class="subpage-summary-value">Programmation, (parcours client), Growth Marketing, Conduite du changement, Maintenance préventive hardware</span>
+                </div>
+                <div class="subpage-summary-col">
+                    <span class="subpage-summary-label">Mon rôle</span>
+                    <span class="subpage-summary-value">Consultant & Intégrateur Solutions IoT / Phygital</span>
+                </div>
+            </div>
+            <div class="subpage-tools-row">
+                <span class="subpage-tools-label">Outils</span>
+                <div class="subpage-tools-list">     
+                    <div class="subpage-tool-img-box"><img src="assets/img/logo-nfc.png" alt="NFC Tools" /></div>
+                    <div class="subpage-tool-img-box"><img src="assets/img/logo-google.png" alt="Google Business Profile API" /></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subpage-content-grid">
+            <aside class="subpage-aside">
+                <nav>
+                    <a href="#defi">— Le Défi</a>
+                    <a href="#strategie">— Stratégie & Parcours</a>
+                    <a href="#architecture">— Architecture Technique</a>
+                    <a href="#conduite">— Conduite du Changement</a>
+                    <a href="#resultat">— Le Résultat</a>
+                </nav>
+            </aside>
+
+            <section class="subpage-sections">
+
+                <div id="defi">
+                    <h2 class="subpage-h2">— LE DÉFI</h2>
+                    <p>Augmenter de manière drastique et organique le volume d'avis Google pour l'établissement "Maison Luce" à Lisbonne grâce à un parcours physique-numérique (Phygital) sans friction. L'objectif commercial était d'exploiter le flux de clients au comptoir pour maximiser le taux de conversion des avis, tout en assurant le déploiement technique et l'adoption complète du dispositif par le personnel de vente.</p>
+                </div>
+
+                <div id="strategie">
+                    <h2 class="subpage-h2">— STRATÉGIE COMMERCIALE & PARCOURS UTILISATEUR</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Analyse du tunnel de conversion :</strong> Identification des points de contact chauds au sein de la boulangerie (comptoir d'attente, tables de dégustation). Conception d'un parcours utilisateur instantané de type "Tap-to-Review".</li>
+                        <li><strong>Design de la PLV (Publicité sur le Lieu de Vente) :</strong> Création de visuels épurés et incitatifs, alignés sur la charte graphique de la marque, afin d'attirer l'œil du client et d'expliquer la démarche en un coup d'œil (call-to-action clair).</li>
+                    </ul>
+                </div>
+
+                <div id="architecture">
+                    <h2 class="subpage-h2">— ARCHITECTURE TECHNIQUE & CONFIGURATION</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Sélection Hardware :</strong> Choix de puces NFC à haute durabilité (puces NTAG213/215 dotées d'une mémoire EEPROM protégée), résistantes à l'eau et adaptées aux surfaces métalliques ou en bois des comptoirs.</li>
+                        <li><strong>Encodage NDEF & Sécurisation :</strong> Programmation des tags au format NDEF avec des URLs optimisées et raccourcies pointant directement vers l'interface de notation Google Review (intégration du paramètre d'écriture automatique des 5 étoiles). Application d'un verrouillage en écriture définitif (Write-Lock) pour interdire toute tentative de piratage ou de redirection malveillante des puces.</li>
+                    </ul>
+                </div>
+
+                <div id="conduite">
+                    <h2 class="subpage-h2">— CONDUITE DU CHANGEMENT & MAINTENANCE</h2>
+                    <ul class="subpage-ul">
+                        <li><strong>Onboarding des équipes :</strong> Animation d'une session de formation pour le personnel de vente afin de leur transmettre l'argumentaire commercial (comment inviter subtilement le client à utiliser le tag en fin d'achat sans être intrusif).</li>
+                        <li><strong>Plan de maintenance :</strong> Établissement d'un protocole de maintenance préventive et corrective pour tester périodiquement la réactivité des puces (cycles de nettoyage des tables, usure mécanique) et remplacer immédiatement les supports dégradés.</li>
+                    </ul>
+                </div>
+
+                <div id="resultat">
+                    <h2 class="subpage-h2">— LE RÉSULTAT</h2>
+                    <div class="subpage-result-box" style="margin-bottom: 0;">
+                        <div class="subpage-result-title" style="font-size: clamp(1.8rem, 6vw, 2.5rem); line-height: 1.1;">+200% D'AVIS GOOGLE</div>
+                        <p class="subpage-result-desc">Croissance exponentielle de l'e-réputation de l'établissement en moins de 3 mois. Cette stratégie a permis de booster le référencement local (SEO Local) de Maison Luce sur Google Maps, générant une augmentation directe du flux de clients internationaux et touristiques à Lisbonne.</p>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <nav class="project-nav">
+            <a href="index.html#realisations" class="nav-prev">← Retour aux réalisations.</a>
+            <a href="projet-4.html" class="nav-next">Projet suivant →</a>
+        </nav>
+
+    </main>
+
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+
+        const fontsReady = document.fonts.ready;
+        const domReady   = new Promise(r => document.addEventListener('DOMContentLoaded', r));
+        Promise.all([fontsReady, domReady]).then(() => {
+            document.body.style.opacity = '1';
+        });
+
+        // Script allégé (retrait des interactions du modèle 3D)
+        const titre = document.getElementById('fade-titre');
+        let scrollTicking = false;
+
+        window.addEventListener('scroll', () => {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                const y = window.scrollY;
+                if (titre) titre.style.opacity = Math.max(1 - y / 120, 0);
+                scrollTicking = false;
+            });
+        }, { passive: true });
+
+        const dot  = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+        if (dot && ring && window.innerWidth > 900) {
+            window.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.left = mouseX + 'px';
+                dot.style.top  = mouseY + 'px';
+            });
+            (function animateRing() {
+                ringX += (mouseX - ringX) * .12;
+                ringY += (mouseY - ringY) * .12;
+                ring.style.left = ringX + 'px';
+                ring.style.top  = ringY + 'px';
+                requestAnimationFrame(animateRing);
+            })();
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+            });
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+
+const subpageObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // On vérifie que la section est visible (même un peu)
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            const link = document.querySelector(`.subpage-aside nav a[href="#${id}"]`);
+            
+            if (link) {
+                // On retire 'active' de TOUS les liens
+                document.querySelectorAll('.subpage-aside nav a').forEach(a => a.classList.remove('active'));
+                // On ajoute 'active' au lien correspondant
+                link.classList.add('active');
+            }
+        }
+    });
+}, { 
+    threshold: 0.2,       // <--- CHANGE CE CHIFFRE : 0.2 suffit largement
+    rootMargin: '-20% 0px -20% 0px' // <--- Ajoute cette marge pour une meilleure précision
+});
+
+document.querySelectorAll('section.subpage-sections > div[id]').forEach(section => {
+    subpageObserver.observe(section);
+});
+    </script>
+
+</body>
+</html> 
