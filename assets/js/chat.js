@@ -1,40 +1,44 @@
-const chatBox = document.createElement('div');
-chatBox.id = 'chat-box';
-chatBox.style.cssText = 'height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background: #fff; display: none;';
+document.addEventListener('DOMContentLoaded', () => {
 
-const chatInput = document.createElement('input');
-chatInput.id = 'chat-input';
-chatInput.placeholder = 'Pose-moi une question...';
-chatInput.style.cssText = 'width: 70%; padding: 5px;';
+    const chatBox = document.createElement('div');
+    chatBox.id = 'chat-box';
+    chatBox.style.cssText = 'height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background: #fff; display: none;';
 
-const sendBtn = document.createElement('button');
-sendBtn.textContent = 'Envoyer';
-sendBtn.style.cssText = 'width: 25%; padding: 5px;';
+    const chatInput = document.createElement('input');
+    chatInput.id = 'chat-input';
+    chatInput.placeholder = 'Pose-moi une question...';
+    chatInput.style.cssText = 'width: 70%; padding: 5px;';
 
-const toggleBtn = document.createElement('button');
-toggleBtn.textContent = '💬 Chat';
-toggleBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; padding: 10px; cursor: pointer;';
+    const sendBtn = document.createElement('button');
+    sendBtn.textContent = 'Envoyer';
+    sendBtn.style.cssText = 'width: 25%; padding: 5px;';
 
-document.body.appendChild(toggleBtn);
-const chatWrapper = document.createElement('div');
-chatWrapper.style.cssText = 'position: fixed; bottom: 60px; right: 20px; width: 300px; background: #eee; padding: 10px;';
-chatWrapper.append(chatBox, chatInput, sendBtn);
-document.body.appendChild(chatWrapper);
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '💬 Chat';
+    toggleBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; padding: 10px; cursor: pointer;';
 
-toggleBtn.onclick = () => chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
+    document.body.appendChild(toggleBtn);
+    const chatWrapper = document.createElement('div');
+    chatWrapper.style.cssText = 'position: fixed; bottom: 60px; right: 20px; width: 300px; background: #eee; padding: 10px;';
+    chatWrapper.append(chatBox, chatInput, sendBtn);
+    document.body.appendChild(chatWrapper);
 
-sendBtn.onclick = async() => {
-    const text = chatInput.value;
-    if (!text) return;
-    chatBox.innerHTML += `<div><b>Moi:</b> ${text}</div>`;
-    chatInput.value = '';
+    toggleBtn.onclick = () => chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
 
-    const response = await fetch('/api/groq', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: [{ role: 'user', content: text }] })
-    });
-    const data = await response.json();
-    chatBox.innerHTML += `<div><b>IA:</b> ${data.text}</div>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-};
+    sendBtn.onclick = async() => {
+        const text = chatInput.value;
+        if (!text) return;
+        chatBox.innerHTML += `<div><b>Moi:</b> ${text}</div>`;
+        chatInput.value = '';
+
+        const response = await fetch('/api/groq', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages: [{ role: 'user', content: text }] })
+        });
+        const data = await response.json();
+        chatBox.innerHTML += `<div><b>IA:</b> ${data.text}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+
+});
