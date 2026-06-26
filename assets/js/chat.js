@@ -31,14 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
         chatBox.innerHTML += `<div><b>Moi:</b> ${text}</div>`;
         chatInput.value = '';
 
-        const response = await fetch('/api/groq', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ messages: [{ role: 'user', content: text }] })
-        });
-        const data = await response.json();
-        chatBox.innerHTML += `<div><b>IA:</b> ${data.text}</div>`;
-        chatBox.scrollTop = chatBox.scrollHeight;
-    };
+        try {
+            // Note le slash devant /api/groq
+            const response = await fetch('/api/groq', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: [{ role: 'user', content: text }] })
+            });
 
+            if (!response.ok) throw new Error('Erreur API');
+
+            const data = await response.json();
+            chatBox.innerHTML += `<div><b>IA:</b> ${data.text}</div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        } catch (err) {
+            chatBox.innerHTML += `<div style="color:red;">Erreur: API non trouvée.</div>`;
+        }
+    };
 });
