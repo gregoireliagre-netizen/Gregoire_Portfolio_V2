@@ -880,8 +880,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     padding: 24px;
     background: rgba(0, 0, 0, 0.02);
     border: 1px solid var(--line-strong);
