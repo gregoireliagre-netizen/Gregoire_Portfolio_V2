@@ -40,7 +40,7 @@
         <h1 id="fade-titre" class="subpage-title" style="font-size: clamp(2.2rem, 7.5vw, 5.5rem); line-height: 1.1;">
             Projet NFC
         </h1>
-        </section>
+    </section>
 
     <main class="subpage-main">
 
@@ -102,6 +102,10 @@
                     </ul>
                 </div>
 
+                <div style="margin: 3rem 0 2rem 0; text-align: center;">
+                    <img src="/assets/img/luce.jpg" alt="Maison Luce" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+
                 <div id="architecture">
                     <h2 class="subpage-h2">— ARCHITECTURE TECHNIQUE & CONFIGURATION</h2>
                     <ul class="subpage-ul">
@@ -145,7 +149,6 @@
             document.body.style.opacity = '1';
         });
 
-        // Script allégé (retrait des interactions du modèle 3D)
         const titre = document.getElementById('fade-titre');
         let scrollTicking = false;
 
@@ -189,30 +192,27 @@
             localStorage.setItem('theme', next);
         });
 
-const subpageObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        // On vérifie que la section est visible (même un peu)
-        if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            const link = document.querySelector(`.subpage-aside nav a[href="#${id}"]`);
-            
-            if (link) {
-                // On retire 'active' de TOUS les liens
-                document.querySelectorAll('.subpage-aside nav a').forEach(a => a.classList.remove('active'));
-                // On ajoute 'active' au lien correspondant
-                link.classList.add('active');
-            }
-        }
-    });
-}, { 
-    threshold: 0.2,       // <--- CHANGE CE CHIFFRE : 0.2 suffit largement
-    rootMargin: '-20% 0px -20% 0px' // <--- Ajoute cette marge pour une meilleure précision
-});
+        const subpageObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.subpage-aside nav a[href="#${id}"]`);
+                    
+                    if (link) {
+                        document.querySelectorAll('.subpage-aside nav a').forEach(a => a.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                }
+            });
+        }, { 
+            threshold: 0.2,
+            rootMargin: '-20% 0px -20% 0px'
+        });
 
-document.querySelectorAll('section.subpage-sections > div[id]').forEach(section => {
-    subpageObserver.observe(section);
-});
+        document.querySelectorAll('section.subpage-sections > div[id]').forEach(section => {
+            subpageObserver.observe(section);
+        });
     </script>
 
 </body>
-</html> 
+</html>
