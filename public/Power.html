@@ -11,6 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/assets/css/style.css" />
 
+    <style>
+        @media (max-width: 768px) {
+            .subpage-title {
+                font-size: clamp(1.8rem, 5vw, 3rem) !important;
+            }
+            
+            .subpage-result-title {
+                font-size: clamp(1.5rem, 4vw, 2rem) !important;
+            }
+        }
+    </style>
+
     <script>
         document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
     </script>
@@ -37,7 +49,7 @@
     </header>
 
     <section class="subpage-hero">
-        <h1 id="fade-titre" class="subpage-title" style="font-size: clamp(2.2rem, 6.5vw, 5.5rem); line-height: 1.1;">
+        <h1 id="fade-titre" class="subpage-title" style="font-size: clamp(1.8rem, 5.5vw, 5.5rem); line-height: 1.1;">
             DIGITALISATION & INDUSTRIAL BI
         </h1>
     </section>
