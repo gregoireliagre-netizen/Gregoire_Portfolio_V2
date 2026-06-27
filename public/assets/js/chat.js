@@ -38,11 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('chat-send-btn');
     const messagesContainer = document.getElementById('chat-messages');
 
-    // Toggle ouverture/fermeture
+    // Empêcher le focus automatique et l'ouverture du clavier sur iOS
     toggleBtn.addEventListener('click', () => {
         chatWindow.style.display = chatWindow.style.display === 'none' ? 'flex' : 'none';
         if (chatWindow.style.display === 'flex') {
-            chatInput.focus();
+            // Sur mobile, on ne focus pas automatiquement
+            if (window.innerWidth > 768) {
+                chatInput.focus();
+            }
         }
     });
 
